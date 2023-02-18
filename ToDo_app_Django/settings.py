@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'todo.apps.TodoConfig',  # подключение СОБСТВЕННОГО приложения к сайту
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
