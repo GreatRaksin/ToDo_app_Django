@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from tinymce import models as tinymce_models
 
 
 User = get_user_model()
@@ -17,7 +18,7 @@ class Task(models.Model):
     deadline_date = models.DateField(null=True, blank=True,
                                     db_index=True)
     deadline_time = models.TimeField(null=True, blank=True)
-    content = models.CharField(max_length=7000)
+    content = tinymce_models.HTMLField(max_length=7000)
     status = models.BooleanField(default=False)
     priority = models.ForeignKey(Priority, on_delete=models.CASCADE,
                                  default=None)

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     'todo.apps.TodoConfig',  # подключение СОБСТВЕННОГО приложения к сайту
     'accounts.apps.AccountsConfig',
+
+    'tinymce',  # подключаем установленное приложение
 ]
 
 MIDDLEWARE = [
@@ -120,9 +122,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, "production_static")
 
 # здесь будем хранить файлы сайта, необходимые для работы
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'production_media')
 MEDIA_URL = '/media/'
 
 # Default primary key field type

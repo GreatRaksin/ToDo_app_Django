@@ -27,3 +27,4 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('register/', register_view, name='register'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # подключаю URL-адреса медиа к сайту
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
