@@ -1,14 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}  <!-- загружает из настроек STATIC_ROOT и STATIC_URL -->
+<!doctype html>
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <title>Space Host</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/css/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/css/style.css' %}">
 </head>
+
+
 <body>
 
-{% block content %}
+{% block content %} <!-- сюда подставляется содержимое страниц сайта -->
 
 {% endblock %}
 
+<script src="{% static 'todo/js/jquery.min.js' %}"></script>
+<script src="{% static 'todo/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'todo/js/slick.min.js' %}"></script>
+<script src="{% static 'todo/js/main.js' %}"></script>
 </body>
 </html>
