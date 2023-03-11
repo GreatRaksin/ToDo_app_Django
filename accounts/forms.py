@@ -5,8 +5,10 @@ User = get_user_model()  # создали экземпляр класса User, 
 
 
 class UserLoginForm(forms.Form):  # создаю свою форму на основе формы из Django
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)  # виджет будет превращать весь текст в звездочки
+    username = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': 'Username'}
+    ))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))  # виджет будет превращать весь текст в звездочки
 
     def clean(self, *args, **kwargs):
         username = self.cleaned_data.get('username')  # очистим данные из формы от лишних пробелов и мета-информации
@@ -22,9 +24,14 @@ class UserLoginForm(forms.Form):  # создаю свою форму на осн
 
 
 class UserRegisterForm(forms.ModelForm):  # создаем форму регистрации по МОДЕЛИ
-    email = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
-    confirm_password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': 'Username'}
+    ))
+    email = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': 'Email'}
+    ))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+    confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password (again)'}))
 
     class Meta:
         model = User

@@ -346,9 +346,10 @@
 #top-content .domain-search-holder{
     margin-bottom: 120px;
 }
-#top-content .domain-search-holder input[type="text"]{
-    padding: 20px 35px;
-    border-radius: 10px;
+#top-content .domain-search-holder input[type="text"], input[type="password"]{
+    padding: 1.3em 1.9em;
+    border-radius: 0.7em;
+    margin-bottom: 2em;
     background-color: #f1f4f5;
     font-size: 18px;
     color: #7c969d;
@@ -358,24 +359,11 @@
     max-width: 420px;
     transition: all 0.3s ease;
 }
-#top-content .domain-search-holder input[type="text"]:hover,
-#top-content .domain-search-holder input[type="text"]:focus{
+#top-content .domain-search-holder input[type="text"], input[type="password"]:hover,
+#top-content .domain-search-holder input[type="text"], input[type="password"]:focus{
     background-color: #f4f7f8;
 }
-#top-content .domain-search-holder input[type="submit"]{
-    padding: 20px 30px;
-    border-radius: 10px;
-    background-color: #6958ca;
-    font-size: 18px;
-    color: #ffffff;
-    border: 0;
-    margin-left: 8px;
-    transition: all 0.3s ease;
-}
-#top-content .domain-search-holder input[type="submit"]:hover,
-#top-content .domain-search-holder input[type="submit"]:focus{
-   background-color: #5849af; 
-}
+
 #top-content .domain-search-holder ::-webkit-input-placeholder {color: #7c969d;}
 #top-content .domain-search-holder :-moz-placeholder {color: #7c969d;}
 #top-content .domain-search-holder ::-moz-placeholder {color: #7c969d;}
@@ -890,22 +878,22 @@
 #search-box .domain-search-holder input[type="text"]:focus{
     background-color: #f4f7f8;
 }
-#search-box .domain-search-holder input[type="submit"]{
-    padding: 20px 30px;
-    border-radius: 10px;
+.domain-search-holder a {
+    padding: 1.3em 1.7em;
+    border-radius: 0.8em;
     background-color: #6958ca;
     font-size: 18px;
     color: #ffffff;
     border: 0;
-    margin-left: -20px;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
-#search-box .domain-search-holder input[type="submit"]:hover,
-#search-box .domain-search-holder input[type="submit"]:focus{
+.domain-search-holder a:hover,
+.domain-search-holder a:focus{
    background-color: #5849af; 
 }
+
 #search-box .domain-search-holder ::-webkit-input-placeholder {color: #7c969d;}
 #search-box .domain-search-holder :-moz-placeholder {color: #7c969d;}
 #search-box .domain-search-holder ::-moz-placeholder {color: #7c969d;}
