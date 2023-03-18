@@ -1,11 +1,16 @@
 from django.contrib import admin
-from .models import Task, Priority
+from .models import Task, Priority, TasksList
 
 
 # Register your models here.
+class TasksListAdmin(admin.ModelAdmin):
+    list_display = ['title',]
+    list_filter = ['user',]
+
+
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ['title', 'status', 'priority', 'user_id', 'deadline_date',]
-    list_filter = ['priority', 'status', 'user_id',]
+    list_display = ['title', 'status',]
+    list_filter = ['priority', 'status',]
 
 
 class PriorityAdmin(admin.ModelAdmin):
@@ -14,4 +19,5 @@ class PriorityAdmin(admin.ModelAdmin):
 
 admin.site.register(Task, TaskAdmin)
 admin.site.register(Priority, PriorityAdmin)
+admin.site.register(TasksList, TasksListAdmin)
 

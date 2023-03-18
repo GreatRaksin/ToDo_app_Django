@@ -1,9 +1,7 @@
 from django.db import models
-from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 from tinymce import models as tinymce_models
-
-
-User = get_user_model()
+from datetime import datetime
 
 
 class Priority(models.Model):
@@ -12,18 +10,30 @@ class Priority(models.Model):
     def __str__(self):
         return self.name
 
-# Create your models here.
+
+class TasksList(models.Model):
+    title = models.CharField(max_length=100, verbose_name='Название списка дел')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'список дел'
+        verbose_name_plural = 'Списки дел'
+        ordering = ('created_at',)  # сортировка
+
+
 class Task(models.Model):
     title = models.CharField(max_length=200)
-    deadline_date = models.DateField(null=True, blank=True,
-                                    db_index=True)
-    deadline_time = models.TimeField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    due_date = models.DateTimeField(null=True, blank=True)
     content = tinymce_models.HTMLField(max_length=7000)
     status = models.BooleanField(default=False)
     priority = models.ForeignKey(Priority, on_delete=models.CASCADE,
                                  default=None)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE,
-                                default=None)
+    todo_list = models.ForeignKey(TasksList, on_delete=models.CASCADE)
     class Meta:
         verbose_name = 'Задачу'
         verbose_name_plural = 'Задачи'
