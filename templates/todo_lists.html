@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for list in lists %}
+        <div>
+            <h1><a href="{% url 'current_list' title=list.title %}">{{ list.title }}</a></h1>
+            <p>{{ list.created_at }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock %}
