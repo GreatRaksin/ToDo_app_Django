@@ -136,6 +136,10 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# django login system
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
+
 # custom packages configuration
 #TINYMCE_JS_URL = os.path.join(STATIC_ROOT, "tinymce/tinymce.min.js")
 #TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, "tinymce")

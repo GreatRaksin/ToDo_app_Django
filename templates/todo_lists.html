@@ -1,12 +1,34 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-
-    {% for list in lists %}
-        <div>
-            <h1><a href="{% url 'current_list' title=list.title %}">{{ list.title }}</a></h1>
-            <p>{{ list.created_at }}</p>
+<div id="more-features" class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row-title">Todo lists<br>
+                    <a href="{%  url 'new_list' %}" class="add_list">
+                        <img src="{% static 'todo/images/2.svg' %}" style="max-width: 24px;">
+                    </a>
+                </div>
+            </div>
         </div>
-    {% endfor %}
+        <div class="row">
+                    {% for list in lists %}
+                        <a href="{% url 'current_list' title=list.title %}">
+                            <div class="col-md-4">
+                                <div class="mfeature-box">
+                                    <div class="mfeature-title">{{ list.title }}
+                                        <a href="{% url 'delete_list' title=list.title %}">
+                                            <img src="{% static 'todo/images/8.svg' %}" style="max-width: 24px;"></a>
+                                    </div>
+                                    <div class="mfeature-text bg-color2">{{ list.created_at }}</div>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+    </div>
+</div>
 
 {% endblock %}

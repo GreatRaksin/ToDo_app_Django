@@ -1,7 +1,6 @@
 from django import forms
-from django.contrib.auth import authenticate, login, logout, get_user_model
-
-User = get_user_model()  # создали экземпляр класса User, который есть Django
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 
 
 class UserLoginForm(forms.Form):  # создаю свою форму на основе формы из Django

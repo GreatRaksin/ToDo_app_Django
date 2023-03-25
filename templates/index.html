@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block content %}
 
@@ -53,7 +55,7 @@
             <div class="col-sm-6 col-md-3">
                 <div class="feature-box">
                     <div class="feature-icon">
-                        <img src="images/feature2.svg" alt="">
+                        <img src="{% static 'todo/images/feature2.svg' %}" alt="">
                     </div>
                     <div class="feature-title">100% Uptime</div>
                     <div class="feature-details">
