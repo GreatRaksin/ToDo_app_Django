@@ -8,4 +8,6 @@ urlpatterns = [
     path('new_list/', views.create_list, name='new_list'),  # страница создания новго списка дел
     path('list/<str:title>', views.show_list, name='current_list'),  # страница с задачами из списка дел
     path('delete/<str:title>', views.delete_list, name='delete_list'),  # удаление списка дел
+    path('new_task/<str:list_name>', views.add_task, name='add_task'),  # добавление задачи
+    path('tasks/<str:list_name>/<int:task_id>', views.delete_task, name='delete_task'), #
 ]
