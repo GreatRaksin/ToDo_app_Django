@@ -11,8 +11,12 @@
                 <div class="col-md-12">
                     <div class="big-title">Plan everything with ToDo App<br>Start today.</div>
                     <div class="domain-search-holder">
-                        <a href="{% url 'login' %}" class="outline-btn purple">Login</a>
-                        <a href="{% url 'register' %}">Register</a>
+                        {% if user.is_anonymous %}
+                            <a href="{% url 'sign_in' %}" class="outline-btn purple">Login</a>
+                            <a href="{% url 'sign_up' %}">Register</a>
+                        {% else %}
+                            <a href="{% url 'lists' %}">Create your ToDo list!</a>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-md-12">

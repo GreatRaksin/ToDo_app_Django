@@ -23,8 +23,8 @@ from accounts.views import login_view, register_view, logout_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('todo.urls')),  # подключаю файл с путями к главному приложению
-    path('login/', login_view, name='login'),
+    path('login/', login_view, name='sign_in'),
     path('logout/', logout_view, name='logout'),
-    path('register/', register_view, name='register'),
+    path('register/', register_view, name='sign_up'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # подключаю URL-адреса медиа к сайту
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

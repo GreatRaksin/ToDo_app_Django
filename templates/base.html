@@ -33,10 +33,15 @@
                         <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse"
                              id="bs">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#features"><span>Features</span></a></li>
-                                <li><a href="#pricing"><span>Purchase</span></a></li>
-                                <li><a href="#contact"><span>Support</span></a></li>
-                                <li><a class="chat-button" href="#">Chat now</a></li>
+                                {% if user.is_anonymous %}  <!-- если пользователь не авторизован-->
+                                    <li><a href="{% url 'sign_in' %}"><span>Login</span></a></li>
+                                    <li><a href="{% url 'sign_up' %}"><span>Register</span></a></li>
+                                {% else %}
+                                    <li><a href="{% url 'logout' %}"><span>Logout</span></a></li>
+                                {% endif %}
+                                <li><a href="{% url 'index' %}"><span>Main page</span></a></li>
+                                <li><a href="{% url 'lists' %}"><span>ToDo lists</span></a></li>
+                                <li><a class="chat-button" href="">Ask question</a></li>
                             </ul>
                         </div>
                     </div>
