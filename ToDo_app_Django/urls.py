@@ -26,5 +26,6 @@ urlpatterns = [
     path('login/', login_view, name='sign_in'),
     path('logout/', logout_view, name='logout'),
     path('register/', register_view, name='sign_up'),
+    path('feedback/', include('feedback.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # подключаю URL-адреса медиа к сайту
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
