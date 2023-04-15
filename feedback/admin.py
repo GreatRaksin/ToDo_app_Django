@@ -4,7 +4,7 @@ from .models import Contact
 
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'subject']
+    list_display = ['name', 'email', 'subject', 'checked']
     list_filter = ['checked', 'created_date']
 
 
