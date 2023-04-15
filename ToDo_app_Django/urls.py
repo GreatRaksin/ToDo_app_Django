@@ -29,3 +29,8 @@ urlpatterns = [
     path('feedback/', include('feedback.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # подключаю URL-адреса медиа к сайту
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+admin.site.site_header = 'ToDo Information System'
+admin.site.site_title = 'В админ панель ToDo'
+admin.site.index_title = 'Добро пожаловать в интерфейс администратора'
