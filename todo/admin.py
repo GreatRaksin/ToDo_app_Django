@@ -12,6 +12,17 @@ class TaskAdmin(admin.ModelAdmin):
     list_display = ['title', 'status',]
     list_filter = ['priority', 'status',]
 
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'due_date', 'status', 'todo_list')
+        }),
+        ('Content', {
+            'fields': ('priority', 'content')
+        }),
+    )
+    '''Каждая секция имеет свой заголовок (или None, если он не нужен) и ассоциированный кортеж 
+    полей в словарях. Порядок полей в кортеже = порядку появления полей на странице в админке '''
+
 
 class PriorityAdmin(admin.ModelAdmin):
     list_display = ['name']
