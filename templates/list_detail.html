@@ -1,11 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+
     <a href="{% url 'add_task' list_name=list_name %}" class="btn btn-primary">Add new task</a>
+
+     {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success my-2"><b>{{ message }}</b></div>
+        {% endfor %}
+    {% endif %}
+
     {% for todo in todos %}
         <div>
-            <h1>{{ todo.title }}</h1>
+            <h1>{{ todo.title }}</h1> <a href=""><img src="{% static 'edit.png' %}" width="2.5%"></a>
+            <p>{{ todo.content|safe }}</p>
+            <p>{{ todo.due_date }} | {{ todo.priority }}</p>
+
+            <a href="{% url 'complete_task' task_title=todo.title %}" class="btn btn-info">Completed</a>
         </div>
     {% endfor %}
+
 
 {% endblock %}

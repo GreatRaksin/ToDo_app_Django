@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import TasksList, Task, Priority
-from .forms import TodoListForm
+from .forms import TodoListForm, TaskForm
 import datetime
 
 
@@ -35,8 +36,19 @@ def create_list(request):
 
 def show_list(request, title):
     task_list = get_object_or_404(TasksList, title=title)
-    todos = Task.objects.filter(todo_list=task_list)
-    return render(request, 'list_detail.html', {'todos': todos, 'list_name': task_list.title})
+    todos = Task.objects.filter(todo_list=task_list, status=False)
+
+    return render(request, 'list_detail.html', {'todos': todos,
+                                                'list_name': task_list.title})
+
+
+def complete_task(request, task_title):
+    todo = get_object_or_404(Task, title=task_title)
+    todo.status = True
+    todo.save()
+    list_title = todo.todo_list.title
+    messages.success(request, f'Task "{task_title}" has been completed!')
+    return redirect('current_list', title=list_title)
 
 
 def delete_list(request, title):
