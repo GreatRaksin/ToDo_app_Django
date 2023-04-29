@@ -5,21 +5,30 @@
 
     <a href="{% url 'add_task' list_name=list_name %}" class="btn btn-primary">Add new task</a>
 
-     {% if messages %}
+    {% if messages %}
         {% for message in messages %}
             <div class="alert alert-success my-2"><b>{{ message }}</b></div>
         {% endfor %}
     {% endif %}
 
-    {% for todo in todos %}
-        <div>
-            <h1>{{ todo.title }}</h1> <a href=""><img src="{% static 'edit.png' %}" width="2.5%"></a>
-            <p>{{ todo.content|safe }}</p>
-            <p>{{ todo.due_date }} | {{ todo.priority }}</p>
+    <div class="row">
+        {% for todo in todos %}
+            <div class="card">
+                <div class="card-header">
+                    <h1>{{ todo.title }} <span class="badge bg-danger">Deadline</span></h1>
+                    <a href=""><img src="{% static 'edit.png' %}" width="2.5%"></a>
+                </div>
 
-            <a href="{% url 'complete_task' task_title=todo.title %}" class="btn btn-info">Completed</a>
-        </div>
-    {% endfor %}
+                <div class="card-body">
+                    <p>{{ todo.content|safe }}</p>
+                    <p>{{ todo.due_date }} | {{ todo.priority }}</p>
+                </div>
 
+                <div class="card-footer">
+                    <a href="{% url 'complete_task' task_title=todo.title %}" class="btn btn-info">Completed</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 
 {% endblock %}

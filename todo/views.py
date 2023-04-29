@@ -38,9 +38,11 @@ def create_list(request):
 def show_list(request, title):
     task_list = get_object_or_404(TasksList, title=title)
     todos = Task.objects.filter(todo_list=task_list, status=False)
+    now = datetime.datetime.now()  # фиксируем дату в тот момент, когда пользователь вошел на сайт
 
     return render(request, 'list_detail.html', {'todos': todos,
-                                                'list_name': task_list.title})
+                                                'list_name': task_list.title,
+                                                'today': now})
 
 
 def complete_task(request, task_title):
