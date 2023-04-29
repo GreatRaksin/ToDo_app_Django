@@ -9,6 +9,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'todo/css/fontawesome-all.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'todo/css/slick.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'todo/css/style.css' %}?v=1">
+    {% if form %}
+        {{ form.media }}
+    {% endif %}
 </head>
 
 

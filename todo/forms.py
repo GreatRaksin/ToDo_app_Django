@@ -1,6 +1,6 @@
 from django import forms
-from django.forms import DateInput
 from .models import TasksList, Task
+from tinymce.widgets import TinyMCE
 
 
 class TodoListForm(forms.ModelForm):
@@ -12,7 +12,10 @@ class TodoListForm(forms.ModelForm):
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['title', 'due_date', 'status']
+        exclude = ('created_at', 'status', 'todo_list')
         widgets = {
-            'due_date': DateInput(attrs={'type': 'date'})
+            'due_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Task name...'}),
+            'priority': forms.Select(attrs={'class': 'form-select'}),
+            'content': TinyMCE(attrs={'cols': 100, 'rows': 40}),
         }
