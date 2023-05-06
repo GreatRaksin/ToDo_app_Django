@@ -15,13 +15,15 @@
         {% for todo in todos %}
             <div class="card">
                 <div class="card-header">
-                    <h1>{{ todo.title }} <span class="badge bg-danger">Deadline</span></h1>
-                    <a href=""><img src="{% static 'edit.png' %}" width="2.5%"></a>
+                    {{ todo.title }} <a href=""><img src="{% static 'edit.png' %}" width="5%"></a>
+                    <br>
+                    <span class="badge bg-danger">Deadline</span>
                 </div>
 
                 <div class="card-body">
                     <p>{{ todo.content|safe }}</p>
-                    <p>{{ todo.due_date }} | {{ todo.priority }}</p>
+                    <hr>
+                    <p><b>{{ todo.due_date }}</b> | <span class="badge bg-warning">{{ todo.priority }}</span></p>
                 </div>
 
                 <div class="card-footer">
