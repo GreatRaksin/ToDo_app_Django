@@ -10,5 +10,5 @@ urlpatterns = [
     path('delete/<str:title>', views.delete_list, name='delete_list'),  # удаление списка дел
     path('new_task/<str:list_name>', views.add_task, name='add_task'),  # добавление задачи
     path('tasks/<str:task_title>/completed', views.complete_task, name='complete_task'),
-    #path('tasks/<str:task_title>/edit', views.edit_task, name='edit_task'),
+    path('tasks/<str:task_title>/edit', views.edit_task, name='edit_task'),
 ]

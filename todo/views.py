@@ -4,7 +4,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import TasksList, Task, Priority
 from .forms import TodoListForm, TaskForm
+from transliterate import translit
 import datetime
+
 
 
 # Create your views here.
@@ -39,7 +41,6 @@ def show_list(request, title):
     task_list = get_object_or_404(TasksList, title=title)
     todos = Task.objects.filter(todo_list=task_list, status=False)
     now = datetime.datetime.now()  # фиксируем дату в тот момент, когда пользователь вошел на сайт
-
     return render(request, 'list_detail.html', {'todos': todos,
                                                 'list_name': task_list.title,
                                                 'today': now})
@@ -52,6 +53,11 @@ def complete_task(request, task_title):
     list_title = todo.todo_list.title
     messages.success(request, f'Task "{task_title}" has been completed!')
     return redirect('current_list', title=list_title)
+
+
+def edit_task(request, task_title):
+    todo = get_object_or_404(Task, title=task_title)
+    return render(request, 'edit_task.html', {'task': todo, 'title': task_title})
 
 
 def delete_list(request, title):

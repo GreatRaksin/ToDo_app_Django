@@ -8,9 +8,13 @@
         <a href="{% url 'add_task' list_name=list_name %}" class="btn btn-success btn-lg">Add new task</a>
     </div>
     <hr>
+
+
     {% if messages %}
         {% for message in messages %}
-            <div class="alert alert-success my-2"><b>{{ message }}</b></div>
+            <div class="wrapper">
+                <div class="alert alert-success my-2"><b>{{ message }}</b></div>
+            </div>
         {% endfor %}
     {% endif %}
 
@@ -18,7 +22,7 @@
         {% for todo in todos %}
             <div class="card">
                 <div class="card-header">
-                    {{ todo.title }} <a href=""><img src="{% static 'edit.png' %}" width="5%"></a>
+                    {{ todo.title }} <a href="{% url 'edit_task' task_title=todo.title %}"><img src="{% static 'edit.png' %}" width="5%"></a>
                     <br>
                     <span class="badge bg-danger">Deadline</span>
                 </div>
