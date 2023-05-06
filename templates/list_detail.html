@@ -3,8 +3,11 @@
 
 {% block content %}
 
-    <a href="{% url 'add_task' list_name=list_name %}" class="btn btn-primary">Add new task</a>
-
+    <div class="wrapper">
+        <h1 class="display-2">{{ list_name }} ToDo's</h1>
+        <a href="{% url 'add_task' list_name=list_name %}" class="btn btn-success btn-lg">Add new task</a>
+    </div>
+    <hr>
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-success my-2"><b>{{ message }}</b></div>
@@ -27,7 +30,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <a href="{% url 'complete_task' task_title=todo.title %}" class="btn btn-info">Completed</a>
+                    <a href="{% url 'complete_task' task_title=todo.title %}" class="btn btn-success btn-lg">Completed</a>
                 </div>
             </div>
         {% endfor %}
