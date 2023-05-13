@@ -57,7 +57,12 @@ def complete_task(request, task_title):
 
 def edit_task(request, task_title):
     todo = get_object_or_404(Task, title=task_title)
-    return render(request, 'edit_task.html', {'task': todo, 'title': task_title})
+    form = TaskForm(request.POST or None, instance=todo)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.save()
+        return redirect(reverse('current_list', args=[todo.todo_list.title]))
+    return render(request, 'task_form.html', {'task': todo, 'title': f'Edit task "{task_title}"', 'form': form})
 
 
 def delete_list(request, title):

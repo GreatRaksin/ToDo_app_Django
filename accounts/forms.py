@@ -4,16 +4,11 @@ from django.contrib.auth.models import User
 
 
 class UserLoginForm(forms.Form):  # создаю свою форму на основе формы из Django
-    username = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': 'Username'}
-    ))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))  # виджет будет превращать весь текст в звездочки
-
     def clean(self, *args, **kwargs):
         username = self.cleaned_data.get('username')  # очистим данные из формы от лишних пробелов и мета-информации
         password = self.cleaned_data.get('password')
 
-        if username and password:  # if bool(username) == True and bool(password) == True (если поля не пустые)
+        if username and password != '':  # if bool(username) == True and bool(password) == True (если поля не пустые)
             user = authenticate(username=username, password=password)
             if not user:  # если не получилось авторизовать пользователя в системе
                 raise forms.ValidationError('Такого пользователя не существует или пароль неправильный!')

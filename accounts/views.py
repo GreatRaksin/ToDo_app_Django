@@ -5,7 +5,6 @@ from .forms import UserLoginForm, UserRegisterForm
 
 # Create your views here.
 def login_view(request):
-    # TODO: FIX ME
     form = UserLoginForm(request.POST or None)
     if form.is_valid():  # если форма отправлена без ошибок
         username = form.cleaned_data.get('username')

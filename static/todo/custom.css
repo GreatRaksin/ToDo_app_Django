@@ -74,6 +74,16 @@ hr:after {
 }
 
 .add-form {
+    width: 70%;
+    max-width: 800px;
+    margin: 1em auto;
+}
 
+.add-form input[type="submit"] {
+    width: 100%;
+}
+
+.form-label {
+    font-size: 1.4em;
 }
 
