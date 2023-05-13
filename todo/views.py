@@ -76,7 +76,3 @@ def add_task(request, list_name):
         task.save()
         return redirect(reverse('current_list', args=[todo_list.title]))
     return render(request, 'task_form.html', {'title': 'New Task', 'form': form})
-
-
-def delete_task(request, task_id):
-    pass
