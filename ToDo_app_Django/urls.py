@@ -25,10 +25,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('todo.urls')),  # подключаю файл с путями к главному приложению
     path('login/', auth_views.LoginView.as_view(template_name='login.html',
-                                                redirect_authenticated_user=True), name='sign_in'),
+                                                redirect_authenticated_user=True,
+                                                extra_context={"title": "Login"}), name='sign_in'),
     path('logout/', logout_view, name='logout'),
     path('register/', register_view, name='sign_up'),
-    path('feedback/', include('feedback.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # подключаю URL-адреса медиа к сайту
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

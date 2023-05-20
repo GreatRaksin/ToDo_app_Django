@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Task, Priority, TasksList
+from .models import Task, Priority, TasksList, Feedback
 
 
 # Register your models here.
@@ -28,7 +28,13 @@ class PriorityAdmin(admin.ModelAdmin):
     list_display = ['name']
 
 
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display = ['subject', 'email', 'status']
+    list_filter = ['email', 'status']
+
+
 admin.site.register(Task, TaskAdmin)
 admin.site.register(Priority, PriorityAdmin)
 admin.site.register(TasksList, TasksListAdmin)
+admin.site.register(Feedback, FeedbackAdmin)
 

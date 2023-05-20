@@ -40,7 +40,6 @@ INSTALLED_APPS = [
 
     'todo.apps.TodoConfig',  # подключение СОБСТВЕННОГО приложения к сайту
     'accounts.apps.AccountsConfig',
-    'feedback.apps.FeedbackConfig',
 
     'tinymce',  # подключаем установленное приложение
 ]

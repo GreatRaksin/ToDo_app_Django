@@ -3,15 +3,18 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import TasksList, Task, Priority
-from .forms import TodoListForm, TaskForm
+from .forms import TodoListForm, TaskForm, FeedbackForm
 from transliterate import translit
 import datetime
 
 
-
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    form = FeedbackForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('index')
+    return render(request, 'index.html', {'title': 'ToDo App', 'form': form})
 
 
 @login_required(login_url='/login')

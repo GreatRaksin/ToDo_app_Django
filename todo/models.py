@@ -42,4 +42,19 @@ class Task(models.Model):
         return self.title
 
 
+class Feedback(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    status = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = 'Сообщение'
+        verbose_name_plural = 'Сообщения'
+
+    def __repr__(self):
+        return self.name + ' ' + self.subject
+
+
 

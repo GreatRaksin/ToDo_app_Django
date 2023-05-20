@@ -1,5 +1,5 @@
 from django import forms
-from .models import TasksList, Task
+from .models import TasksList, Task, Feedback
 from tinymce.widgets import TinyMCE
 
 
@@ -19,3 +19,9 @@ class TaskForm(forms.ModelForm):
             'priority': forms.Select(attrs={'class': 'form-control'}),
             'content': TinyMCE(attrs={'cols': 100, 'rows': 40}),
         }
+
+
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        exclude = ('status',)
