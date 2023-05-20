@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    <div id="header-holder">
+        <div id="top-content" class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="big-title">{{ title }}</div>
+                        <div class="domain-search-holder">
+                            <form method="post">
+                                {% csrf_token %}
+
+                                {{ form.as_p }}
+
+                                <button type="submit" class="btn btn-success">{{ title }}</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
