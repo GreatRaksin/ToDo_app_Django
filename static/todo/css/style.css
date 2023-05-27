@@ -1179,16 +1179,16 @@
     width: 90%;
     margin-left: -45%;
 }
-#contact #contactform{
+#contact #contact-form{
     margin-top: 30px;
     margin-bottom: 10px;
 }
-#contact #contactform ::-webkit-input-placeholder {color: #7c969d;}
-#contact #contactform :-moz-placeholder {color: #7c969d;}
-#contact #contactform ::-moz-placeholder {color: #7c969d;}
-#contact #contactform :-ms-input-placeholder {color: #7c969d;}
+#contact #contact-form ::-webkit-input-placeholder {color: #7c969d;}
+#contact #contact-form :-moz-placeholder {color: #7c969d;}
+#contact #contact-form ::-moz-placeholder {color: #7c969d;}
+#contact #contact-form :-ms-input-placeholder {color: #7c969d;}
 
-#contact #contactform input[type="text"]{
+#contact #contact-form input[type="text"]{
     border: 1px solid #9e9e9e;
     background-color: #ffffff;
     border-radius: 12px;
@@ -1200,11 +1200,11 @@
     text-align: left;
     margin-bottom: 10px;
 }
-#contact #contactform input[type="text"]:hover,
-#contact #contactform input[type="text"]:focus{
+#contact #contact-form input[type="text"]:hover,
+#contact #contact-form input[type="text"]:focus{
     border: 1px solid #696969;
 }
-#contact #contactform input[type="email"]{
+#contact #contact-form input[type="email"]{
     border: 1px solid #9e9e9e;
     background-color: #ffffff;
     border-radius: 12px;
@@ -1216,11 +1216,11 @@
     text-align: left;
     margin-bottom: 10px;
 }
-#contact #contactform input[type="email"]:hover,
-#contact #contactform input[type="email"]:focus{
+#contact #contact-form input[type="email"]:hover,
+#contact #contact-form input[type="email"]:focus{
     border: 1px solid #696969;
 }
-#contact #contactform textarea{
+#contact #contact-form textarea{
     border: 1px solid #9e9e9e;
     background-color: #ffffff;
     border-radius: 12px;
@@ -1234,11 +1234,11 @@
     margin-bottom: 10px;
     resize: none;
 }
-#contact #contactform textarea:hover,
-#contact #contactform textarea:focus{
+#contact #contact-form textarea:hover,
+#contact #contact-form textarea:focus{
     border: 1px solid #696969;
 }
-#contact #contactform input[type="submit"]{
+#contact #contact-form input[type="submit"]{
     background-color: #6958ca;
     float: right;
     border: 0;
@@ -1252,10 +1252,10 @@
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
-#contact #contactform input[type="submit"]:hover{
+#contact #contact-form input[type="submit"]:hover{
     background-color: #5446a5;
 }
-#contact #contactform .ajax-button.sending input[type="submit"]{
+#contact #contact-form .ajax-button.sending input[type="submit"]{
     pointer-events: none;
     font-size:0;
     width:35px;

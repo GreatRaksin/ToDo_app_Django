@@ -39,7 +39,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="{% url 'index' %}"><span>Main page</span></a></li>
                             <li><a href="{% url 'lists' %}"><span>ToDo lists</span></a></li>
-                            <li><a class="chat-button" href="{% url 'index' %}/#ask">Ask question</a></li>
+                            <li><a class="chat-button" href="{% url 'index' %}#contactform">Ask question</a></li>
                             {% if user.is_anonymous %}  <!-- если пользователь не авторизован-->
                                 <li><a href="{% url 'sign_in' %}"><span>Login</span></a></li>
                                 <li><a href="{% url 'sign_up' %}"><span>Register</span></a></li>

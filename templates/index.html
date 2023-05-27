@@ -139,7 +139,15 @@
                         </div>
                     </div>
                     <div class="row">
-                        <form id="contactform" method="post">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-dismissible alert-success">
+                                    <button class="close" type="button" data-dismiss="alert">x</button>
+                                    <strong>{{ message }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        <form id="contact-form" method="post">
                             {% csrf_token %}
                             <div class="form-items-holder">
                                 <div class="col-sm-12 col-md-6">
@@ -155,9 +163,9 @@
                                     {{ form.message }}
                                 </div>
                                 <div class="ajax-button col-md-12">
-                                    <input id="submit" type="submit" value="Send message">
+                                    <input id="submit" type="submit" value="Send message" style="width: 100%;">
                                 </div>
-                                <div class="col-md-12" id="form-messages"></div>
+
                             </div>
                         </form>
                     </div>

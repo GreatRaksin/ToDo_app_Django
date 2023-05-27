@@ -25,3 +25,9 @@ class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
         exclude = ('status',)
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Your name'}),
+            'email': forms.TextInput(attrs={'placeholder': 'Your email'}),
+            'subject': forms.TextInput(attrs={'placeholder': 'Subject'}),
+            'message': forms.TextInput(attrs={'placeholder': 'Message'})
+        }

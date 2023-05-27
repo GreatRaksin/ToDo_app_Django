@@ -13,7 +13,8 @@ def index(request):
     form = FeedbackForm(request.POST)
     if form.is_valid():
         form.save()
-        return redirect('index')
+        messages.success(request, 'Your message was successfully saved!')
+        return render(request, 'index.html', {'form': FeedbackForm(request.GET)})
     return render(request, 'index.html', {'title': 'ToDo App', 'form': form})
 
 
