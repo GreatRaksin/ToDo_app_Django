@@ -120,19 +120,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-if DEBUG:
-    STATIC_URL = '/static/'
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static')
-    ]
-    STATIC_ROOT = os.path.join(BASE_DIR, "production_static")
-else:
-    STATIC_URL = '/production_static/'
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'production_static')
-    ]
-    STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, "production_static")
 
 # здесь будем хранить файлы сайта, необходимые для работы
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
